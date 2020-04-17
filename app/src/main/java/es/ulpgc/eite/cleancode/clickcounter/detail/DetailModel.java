@@ -17,16 +17,6 @@ public class DetailModel implements DetailContract.Model {
   }
 
   @Override
-  public void onDataFromNextScreen(CounterData data) {
-    // Log.e(TAG, "onDataFromNextScreen()");
-  }
-
-  @Override
-  public void onDataFromPreviousScreen(CounterData data) {
-
-  }
-
-  @Override
   public void addClick() {
     counter.value++;
     totalClicks++;

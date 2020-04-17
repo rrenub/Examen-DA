@@ -37,11 +37,7 @@ public interface DetailContract {
   }
 
   interface Model {
-    void onDataFromNextScreen(CounterData data);
-
     void onRestartScreen(CounterData counter, int totalClicks);
-
-    void onDataFromPreviousScreen(CounterData data);
 
     void setCounter(CounterData counter);
 
