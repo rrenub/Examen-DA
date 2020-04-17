@@ -22,7 +22,6 @@ public class MasterActivity
     setContentView(R.layout.activity_master);
     getSupportActionBar().setTitle(R.string.app_name);
 
-    //prueba commit
 
     // do the setup
     MasterScreen.configure(this);
@@ -81,7 +80,6 @@ public class MasterActivity
           @Override
           public void onClick(View view) {
             CounterData data = (CounterData) view.getTag();
-
           }
         })
     );

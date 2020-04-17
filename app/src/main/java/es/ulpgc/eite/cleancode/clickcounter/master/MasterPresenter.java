@@ -36,6 +36,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     model.onRestartScreen(state.datasource);
   }
 
+
   @Override
   public void onResume() {
     // Log.e(TAG, "onResume()");
@@ -43,7 +44,6 @@ public class MasterPresenter implements MasterContract.Presenter {
     // use passed state if is necessary
     DetailToMasterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
-
       // update the model if is necessary
       model.onDataFromNextScreen(savedState.data);
     }
@@ -58,7 +58,7 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onBackPressed() {
-    // Log.e(TAG, "onBackPressed()");
+    //no hace nada
   }
 
   @Override
@@ -73,7 +73,8 @@ public class MasterPresenter implements MasterContract.Presenter {
 
   @Override
   public void onButtonPressed() {
-    // Log.e(TAG, "onButtonPressed()");
+    model.addNewCounter();
+    view.get().onDataUpdated(state);
   }
 
   @Override

@@ -45,6 +45,8 @@ public interface MasterContract {
     void onRestartScreen(List<CounterData> datasource);
 
     void onDataFromPreviousScreen(String data);
+
+    void addNewCounter();
   }
 
   interface Router {
