@@ -53,6 +53,8 @@ public interface MasterContract {
     void updateCounterData(CounterData counter);
 
     void addClicksToTotal(CounterData counter);
+
+      int getTotalClicks();
   }
 
   interface Router {

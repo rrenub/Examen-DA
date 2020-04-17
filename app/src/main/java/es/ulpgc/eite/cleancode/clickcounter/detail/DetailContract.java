@@ -37,13 +37,21 @@ public interface DetailContract {
   }
 
   interface Model {
-    String getStoredData();
-
     void onDataFromNextScreen(CounterData data);
 
     void onRestartScreen(String data);
 
     void onDataFromPreviousScreen(CounterData data);
+
+    void setCounter(CounterData counter);
+
+    void setTotalClicks(int totalClicks);
+    
+    CounterData getCounter();
+
+    int getTotalClicks();
+
+    void addClick();
   }
 
   interface Router {

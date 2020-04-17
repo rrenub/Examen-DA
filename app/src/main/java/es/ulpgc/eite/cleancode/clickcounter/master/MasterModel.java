@@ -54,6 +54,11 @@ public class MasterModel implements MasterContract.Model {
     }
 
     @Override
+    public int getTotalClicks() {
+        return totalClicks;
+    }
+
+    @Override
     public void addClicksToTotal(CounterData counter) {
         totalClicks += counter.value;
     }

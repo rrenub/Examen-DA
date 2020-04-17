@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -72,7 +73,8 @@ public class DetailActivity
     //Log.e(TAG, "onDataUpdated()");
 
     // deal with the data
-    ((TextView) findViewById(R.id.counter)).setText(viewModel.data);
+    ((TextView) findViewById(R.id.counter)).setText(String.valueOf(viewModel.counter.value));
+    ((TextView) findViewById(R.id.clicks)).setText(String.valueOf(viewModel.totalClicks));
   }
 
   @Override

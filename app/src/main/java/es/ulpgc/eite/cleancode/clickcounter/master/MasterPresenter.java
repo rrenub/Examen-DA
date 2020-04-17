@@ -33,6 +33,7 @@ public class MasterPresenter implements MasterContract.Presenter {
   public void selectCounterData(CounterData data) {
     MasterToDetailState passState = new MasterToDetailState();
     passState.counter = data;
+    passState.totalClicks = model.getTotalClicks();
     router.passStateToNextScreen(passState);
     router.navigateToNextScreen();
   }

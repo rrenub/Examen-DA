@@ -1,5 +1,7 @@
 package es.ulpgc.eite.cleancode.clickcounter.detail;
 
+import android.util.Log;
+
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
@@ -25,14 +27,16 @@ public class DetailPresenter implements DetailContract.Presenter {
     if (state == null) {
       state = new DetailState();
     }
-
     // use passed state if is necessary
     MasterToDetailState savedState = router.getStateFromPreviousScreen();
     if (savedState != null) {
 
       // update the model if is necessary
-      model.onDataFromPreviousScreen(savedState.counter);
+      model.setCounter(savedState.counter);
+      model.setTotalClicks(savedState.totalClicks);
     }
+    state.counter = model.getCounter();
+    state.totalClicks = model.getTotalClicks();
   }
 
   @Override
@@ -40,7 +44,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.data);
+    //model.onRestartScreen(state.data);
   }
 
   @Override
@@ -48,7 +52,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onResume()");
 
     // call the model and update the state
-    state.data = model.getStoredData();
+    //state.data = model.getStoredData();
 
     // update the view
     view.get().onDataUpdated(state);
@@ -73,6 +77,10 @@ public class DetailPresenter implements DetailContract.Presenter {
   @Override
   public void onButtonPressed() {
     // Log.e(TAG, "onButtonPressed()");
+    model.addClick();
+    state.counter = model.getCounter();
+    state.totalClicks = model.getTotalClicks();
+    view.get().onDataUpdated(state);
   }
 
   @Override
