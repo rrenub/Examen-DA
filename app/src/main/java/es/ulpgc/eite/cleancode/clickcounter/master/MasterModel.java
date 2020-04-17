@@ -29,6 +29,8 @@ public class MasterModel implements MasterContract.Model {
     @Override
     public void onRestartScreen(List<CounterData> datasource) {
         // Log.e(TAG, "onRestartScreen()");
+
+        this.datasource = datasource;
     }
 
     @Override
