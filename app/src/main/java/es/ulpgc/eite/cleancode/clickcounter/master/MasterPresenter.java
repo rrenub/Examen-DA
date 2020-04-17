@@ -3,6 +3,8 @@ package es.ulpgc.eite.cleancode.clickcounter.master;
 import java.lang.ref.WeakReference;
 
 import es.ulpgc.eite.cleancode.clickcounter.app.DetailToMasterState;
+import es.ulpgc.eite.cleancode.clickcounter.app.MasterToDetailState;
+import es.ulpgc.eite.cleancode.clickcounter.data.CounterData;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -25,7 +27,14 @@ public class MasterPresenter implements MasterContract.Presenter {
     if (state == null) {
       state = new MasterState();
     }
+  }
 
+  @Override
+  public void selectCounterData(CounterData data) {
+    MasterToDetailState passState = new MasterToDetailState();
+    passState.counter = data;
+    router.passStateToNextScreen(passState);
+    router.navigateToNextScreen();
   }
 
   @Override
@@ -45,7 +54,8 @@ public class MasterPresenter implements MasterContract.Presenter {
     DetailToMasterState savedState = router.getStateFromNextScreen();
     if (savedState != null) {
       // update the model if is necessary
-      model.onDataFromNextScreen(savedState.data);
+      model.updateCounterData(savedState.counter);
+      model.addClicksToTotal(savedState.counter);
     }
 
     // call the model and update the state
@@ -53,7 +63,6 @@ public class MasterPresenter implements MasterContract.Presenter {
 
     // update the view
     view.get().onDataUpdated(state);
-
   }
 
   @Override

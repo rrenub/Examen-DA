@@ -35,6 +35,8 @@ public interface MasterContract {
     void onDestroy();
 
     void onButtonPressed();
+
+    void selectCounterData(CounterData data);
   }
 
   interface Model {
@@ -47,6 +49,10 @@ public interface MasterContract {
     void onDataFromPreviousScreen(String data);
 
     void addNewCounter();
+
+    void updateCounterData(CounterData counter);
+
+    void addClicksToTotal(CounterData counter);
   }
 
   interface Router {
