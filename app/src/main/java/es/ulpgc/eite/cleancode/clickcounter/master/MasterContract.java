@@ -44,7 +44,7 @@ public interface MasterContract {
 
     void onDataFromNextScreen(String data);
 
-    void onRestartScreen(List<CounterData> datasource);
+    void onRestartScreen(List<CounterData> datasource, int totalClicks);
 
     void onDataFromPreviousScreen(String data);
 
@@ -52,7 +52,7 @@ public interface MasterContract {
 
     void updateCounterData(CounterData counter);
 
-    void addClicksToTotal(CounterData counter);
+    void addClicksToTotal(int totalClicks);
 
       int getTotalClicks();
   }

@@ -29,7 +29,7 @@ public class MasterModel implements MasterContract.Model {
     }
 
     @Override
-    public void onRestartScreen(List<CounterData> datasource) {
+    public void onRestartScreen(List<CounterData> datasource, int totalClicks) {
         // Log.e(TAG, "onRestartScreen()");
 
         this.datasource = datasource;
@@ -49,7 +49,7 @@ public class MasterModel implements MasterContract.Model {
     public void updateCounterData(CounterData counter) {
         if(datasource.contains(counter)) {
             int pos = datasource.indexOf(counter);
-            datasource.set(pos, counter);
+            datasource.get(pos).value = counter.value;
         }
     }
 
@@ -59,7 +59,7 @@ public class MasterModel implements MasterContract.Model {
     }
 
     @Override
-    public void addClicksToTotal(CounterData counter) {
-        totalClicks += counter.value;
+    public void addClicksToTotal(int totalClicks) {
+        this.totalClicks = totalClicks;
     }
 }

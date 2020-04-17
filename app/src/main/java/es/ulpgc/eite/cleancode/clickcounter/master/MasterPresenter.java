@@ -43,7 +43,7 @@ public class MasterPresenter implements MasterContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    model.onRestartScreen(state.datasource);
+    model.onRestartScreen(state.datasource, state.totalClicks);
   }
 
 
@@ -56,11 +56,12 @@ public class MasterPresenter implements MasterContract.Presenter {
     if (savedState != null) {
       // update the model if is necessary
       model.updateCounterData(savedState.counter);
-      model.addClicksToTotal(savedState.counter);
+      model.addClicksToTotal(savedState.totalClicks);
     }
 
     // call the model and update the state
     state.datasource = model.getStoredData();
+    state.totalClicks = model.getTotalClicks();
 
     // update the view
     view.get().onDataUpdated(state);
