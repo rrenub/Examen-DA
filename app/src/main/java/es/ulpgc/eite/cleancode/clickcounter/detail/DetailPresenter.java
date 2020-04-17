@@ -44,7 +44,7 @@ public class DetailPresenter implements DetailContract.Presenter {
     // Log.e(TAG, "onRestart()");
 
     // update the model if is necessary
-    //model.onRestartScreen(state.data);
+    model.onRestartScreen(state.counter, state.totalClicks);
   }
 
   @Override

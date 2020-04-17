@@ -10,8 +10,10 @@ public class DetailModel implements DetailContract.Model {
   private int totalClicks;
 
   @Override
-  public void onRestartScreen(String data) {
-    // Log.e(TAG, "onRestartScreen()");
+  public void onRestartScreen(CounterData counter, int totalClicks) {
+    //Log.e(TAG, "onRestartScreen()");
+    setCounter(counter);
+    setTotalClicks(totalClicks);
   }
 
   @Override
