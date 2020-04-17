@@ -16,7 +16,6 @@ public class AppMediator extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
-
     masterState = new MasterState();
     detailState = new DetailState();
   }
@@ -24,7 +23,6 @@ public class AppMediator extends Application {
   public MasterState getMasterState() {
     return masterState;
   }
-
 
   public DetailState getDetailState() {
     return detailState;
@@ -35,7 +33,9 @@ public class AppMediator extends Application {
   }
 
   public MasterToDetailState getPreviousDetailScreenState() {
-    return masterToDetailState;
+    MasterToDetailState state = masterToDetailState;
+    masterToDetailState = null;
+    return state;
   }
 
   public void setNextMasterScreenState(MasterToDetailState state) {
@@ -43,6 +43,8 @@ public class AppMediator extends Application {
   }
 
   public DetailToMasterState getNextMasterScreenState() {
-    return detailToMasterState;
+    DetailToMasterState state = detailToMasterState;
+    detailToMasterState = null;
+    return state;
   }
 }
