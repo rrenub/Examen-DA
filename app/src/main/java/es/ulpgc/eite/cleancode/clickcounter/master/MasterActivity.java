@@ -80,6 +80,7 @@ public class MasterActivity
           @Override
           public void onClick(View view) {
             CounterData data = (CounterData) view.getTag();
+            presenter.updateClicks(data);
             presenter.selectCounterData(data);
           }
         })

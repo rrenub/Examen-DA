@@ -37,6 +37,8 @@ public interface MasterContract {
     void onButtonPressed();
 
     void selectCounterData(CounterData data);
+
+    void updateClicks(CounterData data);
   }
 
   interface Model {
@@ -55,6 +57,8 @@ public interface MasterContract {
     void addClicksToTotal(int totalClicks);
 
       int getTotalClicks();
+
+    void addClick(CounterData data);
   }
 
   interface Router {

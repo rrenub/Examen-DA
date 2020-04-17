@@ -89,6 +89,11 @@ public class MasterPresenter implements MasterContract.Presenter {
   }
 
   @Override
+  public void updateClicks(CounterData data) {
+    model.addClick(data);
+  }
+
+  @Override
   public void injectView(WeakReference<MasterContract.View> view) {
     this.view = view;
   }
